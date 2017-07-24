@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="https://fonts.googleapis.com/css?family=Vollkorn:400,400i,700,700i" rel="stylesheet">
+    <link href="/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/assets/styles.css" rel="stylesheet" />
+</head>
+<body>
+<div class="top-bar">
+    <nav>
+        <div class="nav-left">
+            <a asp-action="Index" asp-controller="Home">Home</a>
+            <a asp-action="About" asp-controller="Home">About</a>
+            <a asp-action="Contact" asp-controller="Home">Contact</a>
+        </div>
+        <div class="nav-right">
+            <a class="fa fa-twitter" href="https://twitter.com/chrsparre" target="_blank"></a>
+            <a class="fa fa-facebook" href="https://facebook.com/christian.sparre" target="_blank"></a>
+            <a class="fa fa-linkedin" href="https://www.linkedin.com/in/christiansparre" target="_blank"></a>
+            <a class="fa fa-github" href="https://github.com/christiansparre" target="_blank"></a>
+            <a class="fa fa-instagram" href="https://www.instagram.com/csparre/" target="_blank"></a>
+        </div>
+    </nav>
+</div>
+    <header>
+        <h1>sparre.io</h1>
+    </header>
+<div class="page">
+    @RenderBody()
+</div>
+<footer>
+    &copy; 2017, Christian Sparre
+</footer>
+</body>
+</html>

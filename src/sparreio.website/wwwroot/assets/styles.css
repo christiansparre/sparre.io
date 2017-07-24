@@ -1,0 +1,134 @@
+﻿body {
+    font-family: 'Vollkorn', serif;
+    font-weight: 400;
+    margin: 0;
+}
+
+header {
+    text-align: center;
+}
+
+    header h1 {
+        font-size: 50px;
+        margin-top: 55px;
+    }
+
+.top-bar {
+    top: 0;
+    left: 0;
+    background-color: rgba(37, 37, 37, .6);
+    height: 50px;
+    position: fixed;
+    right: 0;
+}
+
+    .top-bar nav {
+        width: 960px;
+        margin-left: auto;
+        margin-right: auto;
+        text-transform: uppercase;
+        padding-top: 15px;
+        font-family: Tahoma;
+        font-weight: bold;
+        font-size: .9em;
+    }
+
+        .top-bar nav .nav-left {
+            float: left;
+        }
+
+            .top-bar nav .nav-left a {
+                text-decoration: none;
+                color: #fff;
+                margin-right: 20px;
+            }
+
+                .top-bar nav .nav-left a:hover {
+                    color: #e2e2e2;
+                }
+
+        .top-bar nav .nav-right {
+            float: right;
+        }
+
+            .top-bar nav .nav-right a.fa {
+                text-decoration: none;
+                color: #fff;
+                font-size: 1.4em;
+            }
+
+            .top-bar nav .nav-right a {
+                margin-right: 14px;
+            }
+
+                .top-bar nav .nav-right a:hover {
+                    color: #e2e2e2;
+                }
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: inherit;
+}
+
+.page {
+    width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.post-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+    .post-header h1 {
+        font-size: 40px;
+        margin-bottom: 0;
+    }
+
+        .post-header h1 a {
+            text-decoration: none;
+            color: #000;
+        }
+
+.post-content .code {
+    width: 100%;
+    background-color: rgb(230, 230, 230);
+    border: 1px solid rgb(218, 218, 218);
+    padding: 12px;
+    border-radius: 4px;
+}
+
+    .post-content .code pre {
+        padding: 0;
+        margin: 0;
+    }
+
+.post-footer {
+    margin-bottom: 60px;
+}
+
+    .post-footer .post-categories {
+        text-align: center;
+    }
+
+        .post-footer .post-categories a {
+            font-size: 1.1em;
+            display: inline-block;
+            color: #717171;
+            text-decoration: none;
+            padding: 2px 6px;
+            margin: 0 10px 0 0;
+            letter-spacing: .05em;
+            border-radius: 4px;
+            border: 1px solid rgb(218, 218, 218);
+            background-color: rgb(230, 230, 230)
+        }
+
+footer {
+    margin-top: 60px;
+    margin-bottom: 60px;
+    width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #ababab;
+}

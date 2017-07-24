@@ -1,0 +1,48 @@
+﻿@{
+    ViewBag.Title = "About";
+    Layout = "_Layout";
+}
+
+<h2>About</h2>
+<p>
+    I'm Christian, a Danish software developer living in Silkeborg right in the middle of 
+    Jutland close to lakes and forests. Software development is both my 
+    job and a hobby, and I feel very priveliged about that.
+</p>
+<p>
+    I live close to some of the best places for mountainbiking in Denmark, and spend quite some 
+    time out on the local trails, when I'm not in front of the computer exploring new exciting technologies.
+</p>
+<h3>
+    The site
+</h3>
+<p>
+    The site is very simple, just a few pages and a simple "blogging" engine. I was considering using Ghost, 
+    medium or some other fully baked service, with all the benefits. But I decided to give the new ASP.NET 
+    Core bits a go to solve my needs for a personal website. We have been using ASP.NET Core at work almost from the time version 1 
+    dropped in the middle of 2016. But it has mostly been for minor things and some simple rest API's.
+</p>
+<p>
+    I wanted to do something "real", but still simple, where I could explore some of the new bits, and the difference from "classic" ASP.NET 
+    that I have used a lot over the past decade.
+</p>
+<p>
+    The site is, as of july 2017, running on ASP.NET Core 2.0 preview 2. It works fine for the most 
+    part and I have not come across any major issues.
+</p>
+<p>
+    The blog posts are kept in Azure Storage in a combination of Table and Blob storage. 
+    Table storage has a limit on how much data a single property in an entity can hold, so for the content I went with
+    with a markdown file in blob storage and metadata in Table storage.
+</p>
+<p>
+    The current way I use Table and Blob storage for posts will probably not scale all that well. But let's 
+    cross that bridge another time.
+</p>
+<p>
+    I will keep sparre.io on this code as long as it makes sense. The idea is to keep updating it as new versions of
+    ASP.NET Core come out and new features emerge.
+</p>
+<p>
+    Take a look at my github account, where the source code is available.
+</p>
