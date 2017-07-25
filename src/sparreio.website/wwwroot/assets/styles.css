@@ -2,6 +2,7 @@
     font-family: 'Vollkorn', serif;
     font-weight: 400;
     margin: 0;
+    padding-bottom: 60px;
 }
 
 header {
@@ -107,11 +108,11 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 60px;
 }
 
-    .post-footer .post-categories {
+    .post-footer .post-tags {
         text-align: center;
     }
 
-        .post-footer .post-categories a {
+        .post-footer .post-tags a {
             font-size: 1.1em;
             display: inline-block;
             color: #717171;
@@ -125,10 +126,15 @@ h1, h2, h3, h4, h5, h6 {
         }
 
 footer {
-    margin-top: 60px;
-    margin-bottom: 60px;
-    width: 960px;
-    margin-left: auto;
-    margin-right: auto;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #f4f4f4;
+    border-top: solid 1px #eaeaea;
     color: #ababab;
+    text-align: center;
+    height: 60px;
+    text-align: center;
+    padding-top: 14px;
 }

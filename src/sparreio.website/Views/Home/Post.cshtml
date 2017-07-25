@@ -19,10 +19,10 @@
     @Html.Raw(renderedContent)
 </div>
 <div class="post-footer">
-    <section class="post-categories">
-        @foreach (var cat in Model.Categories)
+    <section class="post-tags">
+        @foreach (var cat in Model.Tags)
         {
-            <a asp-action="PostsByCategory" asp-route-category="@cat">@cat</a>
+            <a asp-action="PostsByTag" asp-route-category="@cat">@cat</a>
         }
     </section>
 </div>

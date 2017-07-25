@@ -9,7 +9,7 @@ namespace sparreio.website.ViewModels.Admin.Posts
     {
         public string Title { get; set; }
         public DateTime PublishedUtc { get; set; }
-        public string Categories { get; set; }
+        public string Tags { get; set; }
         public string Content { get; set; }
     }
 }

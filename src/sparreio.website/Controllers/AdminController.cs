@@ -30,7 +30,7 @@ namespace sparreio.website.Controllers
         public async Task<IActionResult> CreatePost(CreatePostViewModel model)
         {
             var postId = await _postService.GetNextPostId();
-            var postModel = await _postService.SavePost(postId, model.Title, model.Categories.Split(',', StringSplitOptions.RemoveEmptyEntries), model.PublishedUtc);
+            var postModel = await _postService.SavePost(postId, model.Title, model.Tags.Split(',', StringSplitOptions.RemoveEmptyEntries), model.PublishedUtc);
             await _postService.SavePostContent(postId, model.Content);
 
             return RedirectToAction("Post", "Home", new { id = postId });

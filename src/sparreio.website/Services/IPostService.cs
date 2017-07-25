@@ -12,7 +12,7 @@ namespace sparreio.website.Services
         Task<PostModel> GetPost(int id);
         Task<PostModel[]> GetAllPostsAsync();
         Task<int> GetNextPostId();
-        Task<PostModel> SavePost(int id, string title, string[] categories, DateTime publishedFrom);
+        Task<PostModel> SavePost(int id, string title, string[] tags, DateTime publishedFrom);
         Task SavePostContent(int id, string content);
         Task<string> GetPostContent(int id);
     }

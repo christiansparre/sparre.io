@@ -44,7 +44,7 @@ namespace sparreio.website.Services
                 Id = PostId.Get(entity.RowKey),
                 Title = entity.Title,
                 PublishedUtc = entity.PublishedUtc,
-                Categories = entity?.Categories.Split(',', StringSplitOptions.RemoveEmptyEntries)
+                Tags = entity?.Tags.Split(',', StringSplitOptions.RemoveEmptyEntries)
             };
         }
 
@@ -80,12 +80,12 @@ namespace sparreio.website.Services
             return posts.Any() ? posts.Max(s => PostId.Get(s.RowKey)) + 1 : 1;
         }
 
-        public async Task<PostModel> SavePost(int id, string title, string[] categories, DateTime publishedUtc)
+        public async Task<PostModel> SavePost(int id, string title, string[] tags, DateTime publishedUtc)
         {
             var entity = new PostEntity(id)
             {
                 Title = title,
-                Categories = string.Join(',', categories),
+                Tags = string.Join(',', tags),
                 PublishedUtc = publishedUtc == DateTime.MinValue ? DateTime.UtcNow : publishedUtc
             };
 

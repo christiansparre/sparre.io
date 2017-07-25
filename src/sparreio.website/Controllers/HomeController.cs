@@ -1,6 +1,7 @@
 ﻿// Copyright (c) Christian Sparre. All rights reserved. 
 // Licensed under the MIT License, see LICENSE.txt in the repository root for license information.
 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -39,7 +40,7 @@ namespace sparreio.website.Controllers
                         Id = p.Id,
                         Title = p.Title,
                         PublishedUtc = p.PublishedUtc,
-                        Categories = p.Categories,
+                        Tags = p.Tags,
                         Exerpt = excerpt + "...",
                     });
                 }
@@ -61,13 +62,39 @@ namespace sparreio.website.Controllers
                 return NotFound();
             }
 
-            return View(new PostViewModel { Id = id, Title = post.Title, Content = postContent, PublishedUtc = post.PublishedUtc, Categories = post.Categories });
+            return View(new PostViewModel { Id = id, Title = post.Title, Content = postContent, PublishedUtc = post.PublishedUtc, Tags = post.Tags });
         }
 
-        [HttpGet("category/{category}")]
-        public IActionResult PostsByCategory(string category)
+        [HttpGet("tags/{tag}")]
+        public async Task<IActionResult> PostsByTag(string tag)
         {
-            return Ok();
+            var posts = await _service.GetAllPostsAsync();
+
+            var postModels = posts.Where(t => t.Tags.Contains(tag, StringComparer.InvariantCultureIgnoreCase));
+
+            var postViewModels = new List<IndexViewModel.Post>();
+
+            foreach (var p in postModels)
+            {
+                var c = await _service.GetPostContent(p.Id);
+
+                if (c != null)
+                {
+                    var excerpt = c.Substring(0, c.Length > 400 ? 400 : c.Length);
+
+                    postViewModels.Add(new IndexViewModel.Post
+                    {
+                        Id = p.Id,
+                        Title = p.Title,
+                        PublishedUtc = p.PublishedUtc,
+                        Tags = p.Tags,
+                        Exerpt = excerpt + "...",
+                    });
+                }
+            }
+
+            var indexViewModel = new IndexViewModel { Posts = postViewModels.OrderByDescending(o => o.PublishedUtc) };
+            return View(indexViewModel);
         }
 
         [HttpGet("about")]
