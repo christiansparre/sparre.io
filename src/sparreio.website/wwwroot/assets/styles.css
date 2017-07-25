@@ -2,7 +2,6 @@
     font-family: 'Vollkorn', serif;
     font-weight: 400;
     margin: 0;
-    padding-bottom: 60px;
 }
 
 header {
@@ -126,15 +125,10 @@ h1, h2, h3, h4, h5, h6 {
         }
 
 footer {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-color: #f4f4f4;
-    border-top: solid 1px #eaeaea;
+   
+    text-align: center;
+    text-align: center;
+    padding-top: 160px;
+    padding-bottom: 30px;
     color: #ababab;
-    text-align: center;
-    height: 60px;
-    text-align: center;
-    padding-top: 14px;
 }
