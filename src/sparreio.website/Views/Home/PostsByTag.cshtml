@@ -1,5 +1,7 @@
 ﻿@using System.Globalization
 @using Markdig
+@using Microsoft.VisualBasic.CompilerServices
+@using sparreio.website.Utils
 @using sparreio.website.ViewModels.Home
 @model IndexViewModel
 @{
@@ -18,9 +20,9 @@
     </div>
     <div class="post-footer">
         <section class="post-tags">
-            @foreach (var cat in p.Tags)
+            @foreach (var tag in p.Tags)
             {
-                <a asp-action="PostsByTag" asp-route-tag="@cat">@cat</a>
+                <a asp-action="PostsByTag" asp-route-tag="@tag">@tag</a>
             }
         </section>
     </div>

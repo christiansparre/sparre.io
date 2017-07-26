@@ -20,9 +20,9 @@
 </div>
 <div class="post-footer">
     <section class="post-tags">
-        @foreach (var cat in Model.Tags)
+        @foreach (var tag in Model.Tags)
         {
-            <a asp-action="PostsByTag" asp-route-category="@cat">@cat</a>
+            <a asp-action="PostsByTag" asp-route-tag="@tag">@tag</a>
         }
     </section>
 </div>
