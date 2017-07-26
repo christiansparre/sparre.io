@@ -51,7 +51,7 @@ namespace sparreio.website.Controllers
         }
 
         [HttpGet("{id:int}/{*slug}")]
-        public async Task<IActionResult> Post(int id)
+        public async Task<IActionResult> Post(int id, string slug = null)
         {
             var post = await _service.GetPost(id);
 
