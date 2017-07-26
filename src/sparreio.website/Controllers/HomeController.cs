@@ -93,6 +93,8 @@ namespace sparreio.website.Controllers
                 }
             }
 
+            ViewBag.Tag = tag;
+            
             var indexViewModel = new IndexViewModel { Posts = postViewModels.OrderByDescending(o => o.PublishedUtc) };
             return View(indexViewModel);
         }

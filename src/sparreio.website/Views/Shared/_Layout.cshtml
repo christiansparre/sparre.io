@@ -3,49 +3,60 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title</title>
+    <title>sparre.io - @ViewBag.Title</title>
     <link href="https://fonts.googleapis.com/css?family=Vollkorn:400,400i,700,700i" rel="stylesheet">
     <link href="/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <link href="/assets/styles.css" rel="stylesheet" />
+    <link href="/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/assets/main.css" rel="stylesheet" />
 </head>
 <body>
-    <div class="top-bar">
-        <nav>
-            <div class="nav-left">
-                <a asp-action="Index" asp-controller="Home">Home</a>
-                <a asp-action="About" asp-controller="Home">About</a>
-                <a asp-action="Contact" asp-controller="Home">Contact</a>
+    <nav class="navbar navbar-inverse navbar-fixed-top navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
             </div>
-            <div class="nav-right">
-                <a class="fa fa-twitter" href="https://twitter.com/chrsparre" target="_blank"></a>
-                <a class="fa fa-facebook" href="https://facebook.com/christian.sparre" target="_blank"></a>
-                <a class="fa fa-linkedin" href="https://www.linkedin.com/in/christiansparre" target="_blank"></a>
-                <a class="fa fa-github" href="https://github.com/christiansparre" target="_blank"></a>
-                <a class="fa fa-instagram" href="https://www.instagram.com/csparre/" target="_blank"></a>
-            </div>
-        </nav>
-    </div>
-    <header>
-        <h1>sparre.io</h1>
-    </header>
-    <div class="page">
+            <nav id="navbar" class="collapse navbar-collapse" aria-expanded="false">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a asp-action="Index" asp-controller="Home">Home</a>
+                    </li>
+                    <li>
+                        <a asp-action="About" asp-controller="Home">About</a>
+                    </li>
+                    <li>
+                        <a asp-action="Contact" asp-controller="Home">Contact</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a class="fa fa-twitter" href="https://twitter.com/chrsparre" target="_blank" title="twitter"></a></li>
+                    <li><a class="fa fa-facebook" href="https://facebook.com/christian.sparre" target="_blank" title="facebook"></a></li>
+                    <li><a class="fa fa-linkedin" href="https://www.linkedin.com/in/christiansparre" target="_blank" title="linkedin"></a></li>
+                    <li><a class="fa fa-github" href="https://github.com/christiansparre" target="_blank" title="github"></a></li>
+                    <li><a class="fa fa-instagram" href="https://www.instagram.com/csparre/" target="_blank" title="instagram"></a></li>
+                </ul>
+            </nav>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="title">
+            <h1>sparre.io</h1>
+        </div>
         @RenderBody()
     </div>
-<footer>
-    <div>
-        &copy; 2017, Christian Sparre
+    <div class="footer">
+        <div>
+            &copy; 2017, Christian Sparre
+        </div>
+        <div>
+            The opinions expressed here are personal and do not represent my employer’s view in any way.
+        </div>
     </div>
-    <div>
-        The opinions expressed here are personal and do not represent my employer’s view in any way.
-    </div>
-    @*<div class="content">
-            <div class="content-left">
-                &copy; 2017, Christian Sparre
-            </div>
-            <div class="content-right">
-                The opinions expressed here are my personal opinions and do not represent my employer’s view in any way.
-            </div>
-        </div>*@
-</footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>
