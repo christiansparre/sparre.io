@@ -164,13 +164,13 @@ namespace sparreio.website.Services
             await _table.ExecuteAsync(TableOperation.Replace(existingPost));
         }
 
-public async Task SaveMedia(string path, string type, byte[] data)
-{
-    var blobRef = _mediaContainer.GetBlockBlobReference(path);
-    blobRef.Properties.ContentType = type;
-    await blobRef.UploadFromByteArrayAsync(data, 0, data.Length, null, null, null);
-    await blobRef.SetPropertiesAsync();
-}
+        public async Task SaveMedia(string path, string type, byte[] data)
+        {
+            var blobRef = _mediaContainer.GetBlockBlobReference(path);
+            blobRef.Properties.ContentType = type;
+            await blobRef.UploadFromByteArrayAsync(data, 0, data.Length, null, null, null);
+            await blobRef.SetPropertiesAsync();
+        }
 
         public async Task<(byte[] data, string type)> GetMedia(string path)
         {

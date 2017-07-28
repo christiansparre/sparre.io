@@ -33,7 +33,8 @@
 <p>
     The blog posts are kept in Azure Storage in a combination of Table and Blob storage. 
     Table storage has a limit on how much data a single property in an entity can hold, so for the content I went with
-    with a markdown file in blob storage and metadata in Table storage.
+    with a markdown file in blob storage and metadata in Table storage. Shortly after that I started using Open Live Writer 
+    instead as styling etc. with code and embedded tweets would be easier. Now content is stored as html files instead.
 </p>
 <p>
     The current way I use Table and Blob storage for posts will probably not scale all that well. But let's 
