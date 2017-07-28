@@ -5,13 +5,6 @@
 
 @model PostViewModel
 @{
-    var pipeline = new MarkdownPipelineBuilder()
-        .UseAdvancedExtensions()
-        .UseCustomContainers()
-        .Build();
-
-    var renderedContent = Markdown.ToHtml(Model.Content, pipeline);
-
     ViewBag.Title = Model.Title;
 }
 <section class="post">
@@ -20,7 +13,7 @@
         <div>@Model.PublishedUtc.ToLocalTime().ToString("D", new CultureInfo("en-us"))</div>
     </header>
     <section class="content">
-        @Html.Raw(renderedContent)
+        @Html.Raw(Model.Content)
     </section>
     <footer>
         @foreach (var tag in Model.Tags)

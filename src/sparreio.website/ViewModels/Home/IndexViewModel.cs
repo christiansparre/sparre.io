@@ -13,9 +13,9 @@ namespace sparreio.website.ViewModels.Home
         public class Post
         {
             public string Title { get; set; }
-            public DateTime PublishedUtc { get; set; }
             public string Exerpt { get; set; }
             public string[] Tags { get; set; }
+            public DateTime PublishedUtc { get; set; }
             public int Id { get; set; }
         }
     }

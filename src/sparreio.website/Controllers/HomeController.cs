@@ -23,13 +23,13 @@ namespace sparreio.website.Controllers
         [HttpGet("")]
         public async Task<IActionResult> Index()
         {
-            var posts = await _service.GetAllPostsAsync();
+            var posts = await _service.GetAllPosts();
 
             var postViewModels = new List<IndexViewModel.Post>();
 
-            foreach (var p in posts)
+            foreach (var p in posts.Where(p => p.PublishedUtc.HasValue))
             {
-                var c = await _service.GetPostContent(p.Id);
+                var c = await _service.GetContent(p.Id);
 
                 if (c != null)
                 {
@@ -39,14 +39,14 @@ namespace sparreio.website.Controllers
                     {
                         Id = p.Id,
                         Title = p.Title,
-                        PublishedUtc = p.PublishedUtc,
+                        PublishedUtc = p.PublishedUtc ?? DateTime.MinValue,
                         Tags = p.Tags,
                         Exerpt = excerpt + "...",
                     });
                 }
             }
 
-            var indexViewModel = new IndexViewModel { Posts = postViewModels.OrderByDescending(o=>o.PublishedUtc) };
+            var indexViewModel = new IndexViewModel { Posts = postViewModels.OrderByDescending(o => o.PublishedUtc) };
             return View(indexViewModel);
         }
 
@@ -55,28 +55,38 @@ namespace sparreio.website.Controllers
         {
             var post = await _service.GetPost(id);
 
-            var postContent = await _service.GetPostContent(id);
+            var postContent = await _service.GetContent(id);
 
             if (post == null || postContent == null)
             {
                 return NotFound();
             }
 
-            return View(new PostViewModel { Id = id, Title = post.Title, Content = postContent, PublishedUtc = post.PublishedUtc, Tags = post.Tags });
+            return View(new PostViewModel { Id = id, Title = post.Title, Content = postContent, PublishedUtc = post.PublishedUtc ?? DateTime.MinValue, Tags = post.Tags });
+        }
+
+        [HttpGet("post-media/{*path}")]
+        public async Task GetMedia(string path)
+        {
+            var media = await _service.GetMedia(path);
+
+            Response.ContentType = media.type;
+            Response.StatusCode = 200;
+            await Response.Body.WriteAsync(media.data, 0, media.data.Length);
         }
 
         [HttpGet("tags/{tag}")]
         public async Task<IActionResult> PostsByTag(string tag)
         {
-            var posts = await _service.GetAllPostsAsync();
+            var posts = await _service.GetAllPosts();
 
-            var postModels = posts.Where(t => t.Tags.Contains(tag, StringComparer.InvariantCultureIgnoreCase));
+            var postModels = posts.Where(t => t.PublishedUtc.HasValue && t.Tags.Contains(tag, StringComparer.InvariantCultureIgnoreCase));
 
             var postViewModels = new List<IndexViewModel.Post>();
 
             foreach (var p in postModels)
             {
-                var c = await _service.GetPostContent(p.Id);
+                var c = await _service.GetContent(p.Id);
 
                 if (c != null)
                 {
@@ -86,7 +96,7 @@ namespace sparreio.website.Controllers
                     {
                         Id = p.Id,
                         Title = p.Title,
-                        PublishedUtc = p.PublishedUtc,
+                        PublishedUtc = p.PublishedUtc ?? DateTime.MinValue,
                         Tags = p.Tags,
                         Exerpt = excerpt + "...",
                     });
@@ -94,7 +104,7 @@ namespace sparreio.website.Controllers
             }
 
             ViewBag.Tag = tag;
-            
+
             var indexViewModel = new IndexViewModel { Posts = postViewModels.OrderByDescending(o => o.PublishedUtc) };
             return View(indexViewModel);
         }

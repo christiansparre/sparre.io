@@ -20,7 +20,9 @@ namespace sparreio.website.Models
 
         public string Title { get; set; }
         public string Tags { get; set; }
-        public DateTime PublishedUtc { get; set; }
+        public DateTime CreatedUtc { get; set; }
+        public DateTime? PublishedUtc { get; set; }
+        public bool Deleted { get; set; }
 
 
         public const string StaticPartitionKey = "FutileBlog";
