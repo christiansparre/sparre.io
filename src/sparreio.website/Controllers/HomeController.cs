@@ -39,6 +39,7 @@ namespace sparreio.website.Controllers
                     {
                         Id = p.Id,
                         Title = p.Title,
+                        Slug = p.Slug,
                         PublishedUtc = p.PublishedUtc ?? DateTime.MinValue,
                         Tags = p.Tags,
                         Exerpt = excerpt + "...",
@@ -96,6 +97,7 @@ namespace sparreio.website.Controllers
                     {
                         Id = p.Id,
                         Title = p.Title,
+                        Slug = p.Slug,
                         PublishedUtc = p.PublishedUtc ?? DateTime.MinValue,
                         Tags = p.Tags,
                         Exerpt = excerpt + "...",

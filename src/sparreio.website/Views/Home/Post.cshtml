@@ -10,7 +10,7 @@
 
     var requestUri = Context.Request.GetUri();
 
-    var disqusPageUrl = $"{requestUri.Scheme}://{requestUri.Host}:{requestUri.Port}/{Model.Id}";
+    var disqusPageUrl = $"{requestUri.Scheme}://{requestUri.Host}:{requestUri.Port}/{Model.Id}/{Model.Slug}";
     var diqusPageId = _environment.EnvironmentName + "-" + Model.Id;
 }
 <section class="post">

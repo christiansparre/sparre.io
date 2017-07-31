@@ -10,6 +10,7 @@ using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
 using Microsoft.WindowsAzure.Storage.Table;
 using sparreio.website.Models;
+using sparreio.website.Utils;
 
 namespace sparreio.website.Services
 {
@@ -52,6 +53,7 @@ namespace sparreio.website.Services
             {
                 Id = PostId.Get(entity.RowKey),
                 Title = entity.Title,
+                Slug = entity.Slug,
                 PublishedUtc = entity.PublishedUtc,
                 CreatedUtc = entity.CreatedUtc,
                 Tags = entity?.Tags.Split(',', StringSplitOptions.RemoveEmptyEntries)
@@ -146,6 +148,11 @@ namespace sparreio.website.Services
             }
 
             existingPost.PublishedUtc = DateTime.UtcNow;
+
+            if (string.IsNullOrWhiteSpace(existingPost.Slug))
+            {
+                existingPost.Slug = Slugify.GenerateSlug(existingPost.Title);
+            }
 
             await _table.ExecuteAsync(TableOperation.Replace(existingPost));
         }
