@@ -4,7 +4,7 @@ namespace sparreio.website.Utils
 {
     public class Slugify
     {
-        public static string GenerateSlug(string phrase, int length = 100)
+        public static string GenerateSlug(string phrase, int length = 40)
         {
             string str = RemoveAccent(phrase).ToLower();
             // invalid chars           
