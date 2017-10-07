@@ -26,7 +26,7 @@ namespace sparreio.website
             Configuration = configuration;
             Environment = environment;
         }
-        
+
         public void ConfigureServices(IServiceCollection services)
         {
             if (Environment.IsProduction())
@@ -36,8 +36,8 @@ namespace sparreio.website
                     options.Filters.Add(new RequireHttpsAttribute());
                 });
             }
-            
-            services.AddAzureAdAuthentication();
+
+            services.AddAzureAdAuthentication(Configuration);
 
             services.AddAuthorization(options =>
             {
@@ -51,7 +51,7 @@ namespace sparreio.website
             services.AddMvc();
 
             ConfigureAzureStorage(services);
-            
+
             services.AddTransient<IPostService, AzureStoragePostService>();
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
@@ -82,7 +82,7 @@ namespace sparreio.website
             app.UseAuthentication();
 
             app.UseMetaWeblog("/livewriter/" + Configuration["MetaWeblog:ApiAccessKey"]);
-            
+
             app.UseMvc();
         }
     }

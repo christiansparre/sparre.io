@@ -9,47 +9,29 @@ namespace Microsoft.AspNetCore.Authentication.Extensions
 {
     public static class AzureAdServiceCollectionExtensions
     {
-        public static IServiceCollection AddAzureAdAuthentication(this IServiceCollection services)
+        public static IServiceCollection AddAzureAdAuthentication(this IServiceCollection services, IConfiguration configuration)
         {
+            var azureOptions = new AzureAdOptions();
+            configuration.GetSection("AzureAd").Bind(azureOptions);
+
             // Move to config binding
             services.AddAuthentication(sharedOptions =>
             {
                 sharedOptions.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
                 sharedOptions.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
                 sharedOptions.DefaultChallengeScheme = OpenIdConnectDefaults.AuthenticationScheme;
+            })
+            .AddCookie()
+            .AddOpenIdConnect(options =>
+            {
+                options.ClientId = azureOptions.ClientId;
+                options.Authority = $"{azureOptions.Instance}{azureOptions.TenantId}";
+                options.UseTokenLifetime = true;
+                options.CallbackPath = azureOptions.CallbackPath;
+                options.RequireHttpsMetadata = false;
             });
 
-            services.AddSingleton<IConfigureOptions<AzureAdOptions>, BindAzureAdOptions>();
-            services.AddSingleton<IPostConfigureOptions<OpenIdConnectOptions>, PostConfigureAzureOptions>();
-            services.AddOpenIdConnectAuthentication();
-            services.AddCookieAuthentication();
             return services;
-        }
-
-        private class BindAzureAdOptions : ConfigureOptions<AzureAdOptions>
-        {
-            public BindAzureAdOptions(IConfiguration config) :
-                base(options => config.GetSection("AzureAd").Bind(options))
-            { }
-        }
-
-        private class PostConfigureAzureOptions: IPostConfigureOptions<OpenIdConnectOptions>
-        {
-            private readonly AzureAdOptions _azureOptions;
-
-            public PostConfigureAzureOptions(IOptions<AzureAdOptions> azureOptions)
-            {
-                _azureOptions = azureOptions.Value;
-            }
-
-            public void PostConfigure(string name, OpenIdConnectOptions options)
-            {
-                options.ClientId = _azureOptions.ClientId;
-                options.Authority = $"{_azureOptions.Instance}{_azureOptions.TenantId}";
-                options.UseTokenLifetime = true;
-                options.CallbackPath = _azureOptions.CallbackPath;
-                options.RequireHttpsMetadata = false;
-            }
         }
     }
 }
