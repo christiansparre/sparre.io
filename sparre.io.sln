@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2036
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{AA549665-964A-4CD8-B215-7D6FEDC73965}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sparreio.Website", "src\Sparreio.Website\Sparreio.Website.csproj", "{89BD9375-4BF8-47F9-9E93-013DB5C6D78F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{89BD9375-4BF8-47F9-9E93-013DB5C6D78F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89BD9375-4BF8-47F9-9E93-013DB5C6D78F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89BD9375-4BF8-47F9-9E93-013DB5C6D78F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89BD9375-4BF8-47F9-9E93-013DB5C6D78F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{89BD9375-4BF8-47F9-9E93-013DB5C6D78F} = {AA549665-964A-4CD8-B215-7D6FEDC73965}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D679A613-01A0-4EDA-9882-1F1F0ADE020F}
+	EndGlobalSection
+EndGlobal

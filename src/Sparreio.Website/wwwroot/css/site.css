@@ -1,0 +1,22 @@
+﻿html, body {
+    background: url(/img/bg1.png) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100%;
+    color: #ffffff;
+    font-family: 'Work Sans', sans-serif;
+}
+
+.links .text {
+    margin-top: 10px;
+}
+
+.links a {
+    color: #ffffff;
+    text-decoration: none;
+}
+.link-item {
+    margin-right: 16px;
+}
