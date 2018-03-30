@@ -8,6 +8,7 @@
     height: 100%;
     color: #ffffff;
     font-family: 'Work Sans', sans-serif;
+    min-height: 100vh;
 }
 
 .links .text {
