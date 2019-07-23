@@ -1,0 +1,17 @@
+﻿@model Sparreio.Website.Features.Blog.ParsedPostModel
+@{
+    ViewData["Title"] = "sparre.io - " + Model.Title;
+}
+<section class="section is-small">
+    <div class="container">
+        <div class="box no-radius">
+            <h2 class="title has-text-centered">@Model.Title</h2>
+            <h3 class="subtitle has-text-centered">@Model.Published.ToLocalTime().ToString("D")</h3>
+
+            <div class="content">
+                @Html.Raw(Model.Body)
+            </div>
+        </div>
+    </div>
+</section>
+

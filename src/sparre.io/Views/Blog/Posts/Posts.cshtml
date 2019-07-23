@@ -1,0 +1,26 @@
+﻿@model IEnumerable<Sparreio.Website.Features.Blog.ParsedPostModel>
+@{
+    ViewData["Title"] = "sparre.io - blog";
+}
+<section class="section is-small">
+    <div class="container">
+
+        @foreach (var p in Model)
+        {
+            <div class="box no-radius">
+                <h2 class="title has-text-centered">
+                    <a href="/post/@p.SlugAndId">
+                        @p.Title
+                    </a>
+                </h2>
+                <h3 class="subtitle has-text-centered">@p.Published.ToLocalTime().ToString("D")</h3>
+
+                <div class="content">
+                    @Html.Raw(p.Body)
+                </div>
+            </div>
+        }
+
+
+    </div>
+</section>

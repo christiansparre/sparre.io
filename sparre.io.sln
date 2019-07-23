@@ -5,9 +5,24 @@ VisualStudioVersion = 16.0.29009.5
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{AA549665-964A-4CD8-B215-7D6FEDC73965}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sparre.io", "src\sparre.io\sparre.io.csproj", "{9F287DE5-B957-4B53-AC4C-E4D1CB7444A6}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9F287DE5-B957-4B53-AC4C-E4D1CB7444A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F287DE5-B957-4B53-AC4C-E4D1CB7444A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F287DE5-B957-4B53-AC4C-E4D1CB7444A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F287DE5-B957-4B53-AC4C-E4D1CB7444A6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9F287DE5-B957-4B53-AC4C-E4D1CB7444A6} = {AA549665-964A-4CD8-B215-7D6FEDC73965}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D679A613-01A0-4EDA-9882-1F1F0ADE020F}
