@@ -1,0 +1,17 @@
+﻿@model Sparreio.Website.Features.Blog.ParsedPostModel
+<div class="box no-radius">
+    <h2 class="title has-text-centered">
+        <a href="/blog/post/@Model.SlugAndId" class="has-text-dark">
+            @Model.Title
+        </a>
+    </h2>
+    <h3 class="subtitle has-text-centered">@Model.Published.ToLocalTime().ToString("D")</h3>
+    <div class="content">
+        @Html.Raw(Model.Excerpt != null ? Model.Excerpt : Model.Body)
+    </div>
+    <div>
+        <a href="/blog/post/@Model.SlugAndId" class="has-text-dark">
+            Read more...
+        </a>
+    </div>
+</div>

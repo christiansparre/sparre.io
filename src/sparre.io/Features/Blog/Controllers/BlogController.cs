@@ -24,13 +24,21 @@ namespace Sparreio.Website.Features.Blog.Controllers
             _blogPosts = blogPosts;
         }
 
-        [HttpGet("posts")]
+        [HttpGet("blog/posts")]
         public IActionResult Posts()
         {
             return View("Views/Blog/Posts/Posts.cshtml", _blogPosts.Posts.Values.OrderByDescending(o => o.Published).Take(10).ToList());
         }
 
-        [HttpGet("post/{*path}")]
+        [HttpGet("blog/tag/{tag}")]
+        public IActionResult PostsByTag(string tag)
+        {
+            ViewBag.Tag = tag;
+
+            return View("Views/Blog/Posts/PostsByTag.cshtml", _blogPosts.Posts.Values.Where(s => s.Tags.Contains(tag, StringComparer.OrdinalIgnoreCase)).OrderByDescending(o => o.Published).Take(10).ToList());
+        }
+
+        [HttpGet("blog/post/{*path}")]
         public IActionResult Post(string path)
         {
             var parts = path.Split('-', StringSplitOptions.RemoveEmptyEntries);
