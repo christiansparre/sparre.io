@@ -58,8 +58,3 @@
 #*.PDF   diff=astextplain
 #*.rtf   diff=astextplain
 #*.RTF   diff=astextplain
-
-
-src/sparre.io/Content/**/*.jpeg filter=lfs diff=lfs merge=lfs -text
-src/sparre.io/Content/**/*.jpg filter=lfs diff=lfs merge=lfs -text
-src/sparre.io/Content/**/*.png filter=lfs diff=lfs merge=lfs -text
