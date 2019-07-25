@@ -29,7 +29,11 @@ namespace Sparreio.Website.Features.Blog
             post.Title = doc.XPathSelectElement("html/head/title").Value;
             post.Tags = doc.XPathSelectElements("html/head/meta").Where(e => e.Attribute("property").Value == "article:tag").Select(s => s.Attribute("content").Value).ToArray();
             string rawBody = doc.XPathSelectElement("html/body").ToString();
-            post.Body = rawBody.Replace("{{ReadMore}}", string.Empty);
+
+            post.Body = rawBody.Replace("{{ReadMore}}", string.Empty)
+                .Replace("<![CDATA[", string.Empty)
+                .Replace("]]>", string.Empty);
+
             post.Excerpt = rawBody.Contains("{{ReadMore}}") ? rawBody.Substring(0, rawBody.IndexOf("{{ReadMore}}")) : null;
 
             post.Id = id;
